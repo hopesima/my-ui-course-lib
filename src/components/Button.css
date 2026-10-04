@@ -1,0 +1,89 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    border: none;
+    border-radius: 10px;
+
+    width: fit-content;
+
+    box-sizing: border-box;
+
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.button__fill {
+    background-color: #17171B;
+    color: white;
+}
+
+.button__outline {
+    border: 1px solid #17171B;
+}
+
+.button__text {
+    background-color: transparent;
+    color: #17171B;
+}
+
+.button__S {
+    min-width: 140px;
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+.button__M {
+    min-width: 140px;
+    font-size: 15px;
+    padding: 12px 0;
+}
+
+.button__L {
+    min-width: 150px;
+    font-size: 16px;
+    padding: 16px 0;
+}
+
+.button:disabled, .button__disabled {
+    opacity: 40%;
+}
+
+.button__fill:hover:not(:disabled), .button__fill.button__hover {
+    background-color: #2D2D33;
+    box-shadow: 0px 1px 2px 0px #00000014;
+}
+
+.button__fill:active:not(:disabled), .button__fill.button__active {
+    background-color: #050506;
+}
+
+.button__fill:disabled, .button__fill.button__disabled {
+    box-shadow: #00000014;
+}
+
+.button__outline:hover:not(:disabled), .button__outline.button__hover {
+    background-color: #F4F4F5;
+    box-shadow: 0px 1px 2px 0px #00000014;
+}
+
+.button__outline:active:not(:disabled), .button__outline.button__active {
+    background-color: #E7E7EA;
+}
+
+.button__outline:disabled, .button__outline.button__disabled {
+    box-shadow: 0px 1px 2px 0px #00000014;
+}
+
+.button__text:hover:not(:disabled), .button__text.button__hover {
+    background-color: #F4F4F5;
+}
+
+.button__text:active:not(:disabled), .button__text.button__active {
+    background-color: #E7E7EA;
+}
+
+.button__text:disabled, .button__text.button__disabled {
+    box-shadow: #00000014;
+}
