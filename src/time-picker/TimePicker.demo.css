@@ -1,0 +1,108 @@
+.time-picker-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  width: 100%;
+  padding: 32px;
+
+  box-sizing: border-box;
+
+  font-family:
+    system-ui,
+    sans-serif;
+}
+
+
+.time-picker-demo h1 {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+
+.time-picker-demo__table {
+  display: grid;
+
+  width: 100%;
+
+  max-width: 1000px;
+
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+.time-picker-demo__row {
+  display: grid;
+
+  grid-template-columns: 320px 1fr;
+
+  align-items: center;
+
+  min-height: 100px;
+
+  padding: 24px;
+
+  border-bottom: 1px solid #eaecf0;
+}
+
+
+.time-picker-demo__row:last-child {
+  border-bottom: none;
+}
+
+
+.time-picker-demo__info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.time-picker-demo__info h3 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #101828;
+}
+
+
+.time-picker-demo__info p {
+  margin: 0;
+
+  max-width: 280px;
+
+  color: #667085;
+
+  font-size: 14px;
+
+  line-height: 20px;
+}
+
+
+.time-picker-demo__preview {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start;
+}
+
+
+
+@media (max-width: 700px) {
+
+  .time-picker-demo__row {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+}

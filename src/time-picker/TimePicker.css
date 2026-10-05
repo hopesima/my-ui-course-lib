@@ -1,0 +1,339 @@
+.time-picker {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  width: fit-content;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+.time-picker label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #344054;
+}
+
+
+.time-picker__input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 180px;
+  height: 40px;
+
+  padding: 8px 12px;
+
+  cursor: pointer;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #101828;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.time-picker__input:hover {
+  border-color: #98a2b3;
+}
+
+
+.time-picker__input:focus-visible {
+  outline: 2px solid #1570ef;
+  outline-offset: 2px;
+}
+
+
+.time-picker__input:disabled {
+  cursor: not-allowed;
+
+  background: #f2f4f7;
+
+  color: #98a2b3;
+}
+
+
+
+
+/* variants */
+
+
+.time-picker--fill .time-picker__input {
+  border-color: transparent;
+
+  background: #f2f4f7;
+}
+
+
+.time-picker--fill .time-picker__input:hover {
+  background: #eaecf0;
+}
+
+
+.time-picker--borderless .time-picker__input {
+  border-color: transparent;
+}
+
+
+.time-picker--borderless .time-picker__input:hover {
+  background: #f9fafb;
+}
+
+
+.time-picker--underline .time-picker__input {
+  border-color: transparent;
+
+  border-bottom-color: #d0d5dd;
+
+  border-radius: 0;
+}
+
+
+
+
+/* sizes */
+
+
+.time-picker--s .time-picker__input {
+  width: 160px;
+  height: 32px;
+
+  font-size: 14px;
+}
+
+
+.time-picker--m .time-picker__input {
+  width: 180px;
+  height: 40px;
+}
+
+
+.time-picker--l .time-picker__input {
+  width: 220px;
+  height: 48px;
+
+  font-size: 16px;
+}
+
+
+
+
+/* dropdown */
+
+
+.time-picker__dropdown {
+  position: absolute;
+
+  top: calc(100% + 8px);
+  left: 0;
+
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 24px rgba(16, 24, 40, 0.12);
+}
+
+
+
+
+.time-picker__panel {
+  display: flex;
+  gap: 4px;
+
+  max-height: 260px;
+
+  padding: 12px;
+}
+
+
+
+
+.time-picker__column {
+  display: flex;
+  flex-direction: column;
+
+  width: 56px;
+
+  max-height: 240px;
+
+  overflow-y: auto;
+}
+
+
+
+
+.time-picker__column::-webkit-scrollbar {
+  width: 4px;
+}
+
+
+.time-picker__column::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.time-picker__column::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+
+  background: #d0d5dd;
+}
+
+
+
+
+.time-picker__column button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 32px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #344054;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+
+.time-picker__column button:hover {
+  background: #f2f4f7;
+}
+
+
+.time-picker__column button.active {
+  background: #eff8ff;
+
+  color: #1570ef;
+
+  font-weight: 600;
+}
+
+
+
+
+/* footer */
+
+
+.time-picker__footer {
+  position: sticky;
+
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  border-top: 1px solid #eaecf0;
+
+  background: #ffffff;
+}
+
+
+
+
+.time-picker__footer button {
+  flex: 1;
+
+  height: 32px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #1570ef;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+
+.time-picker__footer button:hover {
+  background: #eff8ff;
+}
+
+
+
+
+/* status */
+
+
+.time-picker--error .time-picker__input {
+  border-color: #d92d20;
+}
+
+
+.time-picker--error .time-picker__input:focus-visible {
+  outline-color: #d92d20;
+}
+
+
+.time-picker--warning .time-picker__input {
+  border-color: #dc6803;
+}
+
+
+.time-picker--warning .time-picker__input:focus-visible {
+  outline-color: #dc6803;
+}
+
+
+
+
+/* message */
+
+
+.time-picker__message {
+  font-size: 12px;
+
+  color: #667085;
+}
+
+
+.time-picker--error .time-picker__message {
+  color: #d92d20;
+}
+
+
+.time-picker--warning .time-picker__message {
+  color: #dc6803;
+}
