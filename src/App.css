@@ -1,6 +1,6 @@
 .table {
   display: grid;
-  grid-template-columns: 120px 50px repeat(4, 160px);
+  grid-template-columns: 120px 50px repeat(5, 160px);
   grid-auto-rows: auto;
   gap: 24px 0;
   align-items: center;
@@ -16,12 +16,6 @@
 
 h3 {
   margin: 0;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 160px);
-  gap: 10px;
 }
 
 .variant {
@@ -48,18 +42,16 @@ h3 {
   grid-column: 6;
 }
 
+.link {
+  grid-column: 7;
+}
+
 .fill1,
 .fill2,
-.fill3 {
-  grid-column: 1;
-}
-
+.fill3,
 .outline1,
 .outline2,
-.outline3 {
-  grid-column: 1;
-}
-
+.outline3,
 .text1,
 .text2,
 .text3 {
@@ -68,16 +60,10 @@ h3 {
 
 .s1,
 .s2,
-.s3 {
-  grid-column: 2;
-}
-
+.s3,
 .m1,
 .m2,
-.m3 {
-  grid-column: 2;
-}
-
+.m3,
 .l1,
 .l2,
 .l3 {
@@ -93,5 +79,18 @@ h3 {
 .text_s,
 .text_m,
 .text_l {
-  grid-column: 3 / span 4;
+  grid-column: 3 / span 5;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 160px);
+  gap: 10px;
+  align-items: center;
+}
+
+.link_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

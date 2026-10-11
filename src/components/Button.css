@@ -6,6 +6,8 @@
     border: none;
     border-radius: 10px;
 
+    font-family: inherit;
+
     width: fit-content;
 
     box-sizing: border-box;
@@ -21,6 +23,7 @@
 
 .button__outline {
     border: 1px solid #17171B;
+    color: #17171B;
 }
 
 .button__text {
@@ -86,4 +89,9 @@
 
 .button__text:disabled, .button__text.button__disabled {
     box-shadow: #00000014;
+}
+
+.button__a {
+    font-family: inherit;
+    text-decoration: none;
 }
