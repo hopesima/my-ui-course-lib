@@ -1,127 +1,72 @@
-import { Button } from './components/Button'
-import './App.css'
+import { Button } from "./components/Button";
+import { ThemeContext } from "./theme/ThemeContext";
+import "./App.css";
 
-function App() {
+const buttonExamples = [
+  { variant: "fill", size: "S" },
+  { variant: "fill", size: "M" },
+  { variant: "fill", size: "L" },
+  { variant: "outline", size: "S" },
+  { variant: "outline", size: "M" },
+  { variant: "outline", size: "L" },
+  { variant: "text", size: "S" },
+  { variant: "text", size: "M" },
+  { variant: "text", size: "L" },
+] as const;
+
+export default function App() {
   return (
-    <main className="table">
-      <section>
-        <h3 className="variant">variant</h3>
-        <h3 className="size">size</h3>
-        <h3 className="default">default</h3>
-        <h3 className="hover">:hover</h3>
-        <h3 className="active">:active</h3>
-        <h3 className="disabled">disabled</h3>
+    <div className="app">
+      <div className="table-wrapper">
+        <table className="button-table">
+          <thead>
+            <tr>
+              <th scope="col">Вариант</th>
+              <th scope="col">Размер</th>
+              <th scope="col">Обычное состояние</th>
+              <th scope="col">Disabled</th>
+            </tr>
+          </thead>
+          <tbody>
+            {buttonExamples.map(({ variant, size }) => (
+              <tr key={`${variant}-${size}`}>
+                <th scope="row">{variant}</th>
+                <td>{size}</td>
+                <td>
+                  <Button variant={variant} size={size}>
+                    Кнопка
+                  </Button>
+                </td>
+                <td>
+                  <Button variant={variant} size={size} disabled>
+                    Кнопка
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section className="theme-example">
+        <h2>Кнопка с настройкой темы</h2>
+        <ThemeContext
+          tokens={{
+            buttonFillBackgroundColor: "#15803d",
+            buttonFillTextColor: "#ffffff",
+            buttonFillHoverBackgroundColor: "#166534",
+            buttonFillHoverTextColor: "#ffffff",
+            buttonFillActiveBackgroundColor: "#14532d",
+            buttonFillActiveTextColor: "#ffffff",
+            buttonFillDisabledBackgroundColor: "#e2eee5",
+            buttonFillDisabledTextColor: "#718078",
+            buttonDisabledOpacity: "1",
+          }}
+        >
+          <Button>Зеленая кнопка</Button>
+          <Button disabled>Зеленая disabled-кнопка</Button>
+        </ThemeContext>
       </section>
-
-      <section className="row">
-        <h3 className="fill1">fill</h3>
-        <h3 className="s1">S</h3>
-
-        <div className="fill_s buttons">
-          <Button variant="fill" size="S">Кнопка</Button>
-          <Button variant="fill" size="S" state="hover">Кнопка</Button>
-          <Button variant="fill" size="S" state="active">Кнопка</Button>
-          <Button variant="fill" size="S" disabled>Кнопка</Button>
-        </div>
-      </section>
-
-      <section className="row">
-        <h3 className="fill2">fill</h3>
-        <h3 className="m1">M</h3>
-
-        <div className="fill_m buttons">
-          <Button variant="fill" size="M">Кнопка</Button>
-          <Button variant="fill" size="M" state="hover">Кнопка</Button>
-          <Button variant="fill" size="M" state="active">Кнопка</Button>
-          <Button variant="fill" size="M" disabled>Кнопка</Button>
-        </div>
-      </section>
-
-      <section className="row">
-        <h3 className="fill3">fill</h3>
-        <h3 className="l1">L</h3>
-
-        <div className="fill_l buttons">
-          <Button variant="fill" size="L">Кнопка</Button>
-          <Button variant="fill" size="L" state="hover">Кнопка</Button>
-          <Button variant="fill" size="L" state="active">Кнопка</Button>
-          <Button variant="fill" size="L" disabled>Кнопка</Button>
-        </div>
-      </section>
-
-      <section className="row">
-        <h3 className="outline1">outline</h3>
-        <h3 className="s2">S</h3>
-
-        <div className="outline_s buttons">
-          <Button variant="outline" size="S">Кнопка</Button>
-          <Button variant="outline" size="S" state="hover">Кнопка</Button>
-          <Button variant="outline" size="S" state="active">Кнопка</Button>
-          <Button variant="outline" size="S" disabled>Кнопка</Button>
-        </div>
-      </section>
-
-      <section className="row">
-        <h3 className="outline2">outline</h3>
-        <h3 className="m2">M</h3>
-
-        <div className="outline_m buttons">
-          <Button variant="outline" size="M">Кнопка</Button>
-          <Button variant="outline" size="M" state="hover">Кнопка</Button>
-          <Button variant="outline" size="M" state="active">Кнопка</Button>
-          <Button variant="outline" size="M" disabled>Кнопка</Button>
-        </div>
-      </section>
-
-      <section className="row">
-        <h3 className="outline3">outline</h3>
-        <h3 className="l2">L</h3>
-
-        <div className="outline_l buttons">
-          <Button variant="outline" size="L">Кнопка</Button>
-          <Button variant="outline" size="L" state="hover">Кнопка</Button>
-          <Button variant="outline" size="L" state="active">Кнопка</Button>
-          <Button variant="outline" size="L" disabled>Кнопка</Button>
-        </div>
-      </section>
-
-      <section className="row">
-        <h3 className="text1">text</h3>
-        <h3 className="s3">S</h3>
-
-        <div className="text_s buttons">
-          <Button variant="text" size="S">Кнопка</Button>
-          <Button variant="text" size="S" state="hover">Кнопка</Button>
-          <Button variant="text" size="S" state="active">Кнопка</Button>
-          <Button variant="text" size="S" disabled>Кнопка</Button>
-        </div>
-      </section>
-
-      <section className="row">
-        <h3 className="text2">text</h3>
-        <h3 className="m3">M</h3>
-
-        <div className="text_m buttons">
-          <Button variant="text" size="M">Кнопка</Button>
-          <Button variant="text" size="M" state="hover">Кнопка</Button>
-          <Button variant="text" size="M" state="active">Кнопка</Button>
-          <Button variant="text" size="M" disabled>Кнопка</Button>
-        </div>
-      </section>
-
-      <section className="row">
-        <h3 className="text3">text</h3>
-        <h3 className="l3">L</h3>
-
-        <div className="text_l buttons">
-          <Button variant="text" size="L">Кнопка</Button>
-          <Button variant="text" size="L" state="hover">Кнопка</Button>
-          <Button variant="text" size="L" state="active">Кнопка</Button>
-          <Button variant="text" size="L" disabled>Кнопка</Button>
-        </div>
-      </section>
-    </main>
+    </div>
   )
 }
-
-export default App
