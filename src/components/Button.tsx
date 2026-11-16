@@ -1,65 +1,61 @@
-import { forwardRef } from "react";
-import type { ButtonHTMLAttributes, AnchorHTMLAttributes, Ref } from "react";
+import { forwardRef, useContext } from "react";
+import type {
+    AnchorHTMLAttributes,
+    ButtonHTMLAttributes,
+    CSSProperties,
+    Ref,
+} from "react";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 import type { ButtonProps } from "./ButtonProps";
-import "./Button.css";
+import { button, buttonSize, buttonVariant } from "./Button.css.ts";
+import { themeClass, themeVars } from "../theme/theme.css";
+import { ButtonThemeContext } from "../theme/buttonThemeContext";
 
 export const Button = forwardRef<
     HTMLButtonElement | HTMLAnchorElement,
     ButtonProps
 >((props, ref) => {
     const {
+        as,
         variant = "fill",
         size = "S",
-        state = "default",
         className,
+        style,
+        ...elementProps
     } = props;
+    const tokens = useContext(ButtonThemeContext);
+    const themeStyle = assignInlineVars(
+        themeVars,
+        tokens as Record<keyof typeof themeVars, string>,
+    ) as CSSProperties;
 
     const buttonClassName = [
-        "button",
-        `button__${variant}`,
-        `button__${size}`,
-        `button__${state}`,
-        `button__${props.as ?? "button"}`,
+        button,
+        themeClass,
+        buttonVariant[variant],
+        buttonSize[size],
         className,
     ]
         .filter(Boolean)
         .join(" ");
 
-    if (props.as === "a") {
-        const {
-            as,
-            variant: _variant,
-            size: _size,
-            state: _state,
-            className: _className,
-            ...anchorProps
-        } = props;
-
+    if (as === "a") {
         return (
             <a
-                {...(anchorProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
+                {...(elementProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                 ref={ref as Ref<HTMLAnchorElement>}
                 className={buttonClassName}
+                style={{ ...style, ...themeStyle }}
             />
         );
     }
 
-    const {
-        as,
-        variant: _variant,
-        size: _size,
-        state: _state,
-        className: _className,
-        ...buttonProps
-    } = props;
-
     return (
         <button
-            {...(buttonProps as ButtonHTMLAttributes<HTMLButtonElement>)}
+            {...(elementProps as ButtonHTMLAttributes<HTMLButtonElement>)}
             ref={ref as Ref<HTMLButtonElement>}
             className={buttonClassName}
+            style={{ ...style, ...themeStyle }}
         />
     );
 });
-
-Button.displayName = "Button";

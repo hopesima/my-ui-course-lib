@@ -1,7 +1,18 @@
 import react from '@vitejs/plugin-react'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [vanillaExtractPlugin(), react()],
+  build: {
+    cssCodeSplit: false,
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) =>
+          assetInfo.name?.endsWith('.css')
+            ? 'my-ui-library.css'
+            : 'assets/[name]-[hash][extname]',
+      },
+    },
+  },
 })
