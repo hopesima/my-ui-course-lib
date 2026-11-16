@@ -1,4 +1,4 @@
-import { createTheme } from "@vanilla-extract/css";
+import { createGlobalTheme, createTheme, globalStyle } from "@vanilla-extract/css";
 
 export const [themeClass, themeVars] = createTheme({
   buttonFillTextColor: "#ffffff",
@@ -33,4 +33,69 @@ export const [themeClass, themeVars] = createTheme({
   buttonMediumPaddingY: "12px",
   buttonLargePaddingX: "24px",
   buttonLargePaddingY: "16px",
+});
+
+const calendarMetrics = {
+  calendarWidth: "320px",
+  calendarPadding: "16px",
+  calendarRadius: "16px",
+  calendarHeaderGap: "12px",
+  calendarHeaderMargin: "16px",
+  calendarTitleSize: "16px",
+  calendarNavGap: "4px",
+  calendarNavButtonSize: "32px",
+  calendarArrowSize: "22px",
+  calendarWeekdayMargin: "8px",
+  calendarCellSize: "36px",
+  calendarWeekdaySize: "12px",
+  calendarGridRowGap: "4px",
+  calendarDayRadius: "8px",
+  calendarDaySize: "14px",
+  calendarTodayDotSize: "4px",
+  calendarFooterGap: "12px",
+  calendarFooterMargin: "16px",
+  calendarFooterPadding: "12px",
+  calendarFooterTextSize: "12px",
+  calendarTodayButtonPaddingX: "16px",
+  calendarTodayButtonPaddingY: "12px",
+  calendarBorderWidth: "1px",
+  calendarControlResetPadding: "0",
+  calendarFocusOutlineWidth: "2px",
+  calendarFocusOutlineOffset: "2px",
+  calendarTodayDotInset: "3px",
+  calendarTodayIconSize: "16px",
+  calendarTodayButtonIconGap: "8px",
+};
+
+export const calendarVars = createGlobalTheme(":root", {
+  ...calendarMetrics,
+  calendarBackground: "#ffffff",
+  calendarTextColor: "#18181b",
+  calendarMutedTextColor: "#71717a",
+  calendarBorderColor: "#e4e4e7",
+  calendarDayHoverBackground: "#f4f4f5",
+  calendarSelectedBackground: "#18181b",
+  calendarSelectedTextColor: "#ffffff",
+  calendarTodayDotColor: "#18181b",
+  calendarSelectedTodayDotColor: "#ffffff",
+  calendarWeekendTextColor: "#71717a",
+  calendarDisabledTextColor: "#d4d4d8",
+  calendarFocusColor: "#2563eb",
+});
+
+globalStyle('[data-calendar-theme="dark"]', {
+  vars: {
+    [calendarVars.calendarBackground]: "#18181b",
+    [calendarVars.calendarTextColor]: "#f4f4f5",
+    [calendarVars.calendarMutedTextColor]: "#a1a1aa",
+    [calendarVars.calendarBorderColor]: "#3f3f46",
+    [calendarVars.calendarDayHoverBackground]: "#27272a",
+    [calendarVars.calendarSelectedBackground]: "#f4f4f5",
+    [calendarVars.calendarSelectedTextColor]: "#18181b",
+    [calendarVars.calendarTodayDotColor]: "#f4f4f5",
+    [calendarVars.calendarSelectedTodayDotColor]: "#18181b",
+    [calendarVars.calendarWeekendTextColor]: "#a1a1aa",
+    [calendarVars.calendarDisabledTextColor]: "#52525b",
+    [calendarVars.calendarFocusColor]: "#60a5fa",
+  },
 });

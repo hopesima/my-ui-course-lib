@@ -1,6 +1,99 @@
 .app {
   display: grid;
-  gap: 32px;
+  gap: 48px;
+  width: min(100% - 48px, 1120px);
+  margin-inline: auto;
+  padding-block: 40px 64px;
+}
+
+.calendar-demo {
+  display: grid;
+  gap: 28px;
+}
+
+.calendar-demo-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #71717a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.calendar-demo-heading h1 {
+  margin: 0;
+  color: #18181b;
+  font-size: clamp(28px, 4vw, 36px);
+  letter-spacing: -0.04em;
+}
+
+.calendar-description {
+  margin: 8px 0 0;
+  color: #71717a;
+  font-size: 14px;
+}
+
+.calendar-demo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.demo-control {
+  display: grid;
+  gap: 6px;
+  color: #52525b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.demo-control select {
+  min-width: 132px;
+  padding: 9px 32px 9px 12px;
+  border: 1px solid #e4e4e7;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #18181b;
+  font: inherit;
+  font-size: 13px;
+}
+
+.demo-control select:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.calendar-demo-preview {
+  display: inline-flex;
+  align-items: flex-start;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.button-examples {
+  display: grid;
+  gap: 24px;
+  padding-block-start: 32px;
+  border-block-start: 1px solid #e7e7ea;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #18181b;
+  font-size: 22px;
+}
+
+.section-heading p {
+  margin: 6px 0 0;
+  color: #71717a;
+  font-size: 14px;
 }
 
 .table-wrapper {
@@ -41,4 +134,32 @@
   width: 100%;
   margin: 0;
   font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .app {
+    width: min(100% - 32px, 1120px);
+    padding-block: 24px 40px;
+    gap: 36px;
+  }
+
+  .calendar-demo-heading {
+    align-items: flex-start;
+  }
+
+  .calendar-demo-controls {
+    width: 100%;
+  }
+
+  .demo-control {
+    flex: 1;
+  }
+
+  .demo-control select {
+    width: 100%;
+  }
+
+  .calendar-demo-preview {
+    width: 100%;
+  }
 }
